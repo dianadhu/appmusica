@@ -1,56 +1,37 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Real Music</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Artistas <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Mi música</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Mi cuenta </a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Login in</a>
-                <a class="dropdown-item" href="#">Logout</a>
-                <a class="dropdown-item" href="#">Sign up</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <div class= "col-sm-12">
+      <%= render 'navbar' %>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-8">
-      <h2><%= @artist.name %></h2>
-      <h3> Albums (<%= @artist.albums.count %>)</h3>
-      <div class="row m-2">
-        <% @artist.albums.each do |album| %>
-          <div class="col-4 m-2">
-            <div class="card" style="width: 15rem;">
-              <img class="card-img-top" src="<%= album.image_url %>" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title text-left" style="font-size: 15px;"><%= album.name %></h5>
-                <h5 class="card-title text-left" style="font-size: 15px;"><%= l album.released_at, format: '%Y' if album.released_at %></h5>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm-7 ">
+        <h3 class="mt-4"><strong><%=@artist.name%></strong></h3>
+        <h5 class="mt-4"><strong>Albums (<%=@albums.count%>)</strong></h5>
+        <div class="row">
+          <%@albums.each do |album|%>
+            <div class="col-sm-3 pt-3">
+              <div class="card h-100">
+                <img class="card-img-album p-1" id="album" src="<%= album.image_url %>" alt="albums">
+                <div class="card-body p-2">
+                  <h6 class="card-title text-center"><strong><%= album.name %></strong></h6>
+                  <p class="card-text"><%=album.released_at%></p>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>  
-      </div>  
+          <% end %>  
+        </div>
+      </div>
+
+      <div class="col-sm-1"></div>
+
+      <div class="col-sm-4">
+        <img src="<%=@artist.image_url%>" alt="artistas" class="rounded img-artist mt-4" >
+      </div>
+
     </div>
-    <div class="col-2 m-3">
-      <img class="card" style="width: 20rem;" src="<%= @artist.image_url %>">
-    </div>  
   </div>
 </div>

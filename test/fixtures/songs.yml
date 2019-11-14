@@ -3,11 +3,11 @@
 one:
   album: one
   name: MyString
-  number: 1
+  number: MyString
   preview_url: MyString
 
 two:
   album: two
   name: MyString
-  number: 1
+  number: MyString
   preview_url: MyString

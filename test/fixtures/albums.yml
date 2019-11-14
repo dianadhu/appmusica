@@ -4,10 +4,10 @@ one:
   artist: one
   name: MyString
   image_url: MyString
-  released_at: 2018-11-18 23:12:12
+  released_at: MyString
 
 two:
   artist: two
   name: MyString
   image_url: MyString
-  released_at: 2018-11-18 23:12:12
+  released_at: MyString
